@@ -1,0 +1,1042 @@
+{
+    "157.240.205.60": {
+        "host": "157.240.205.60:443",
+        "use_proxy": true
+    },
+    "157.240.251.60": {
+        "host": "157.240.251.60:443",
+        "use_proxy": true
+    },
+    "1dmp.io": {
+        "host": "sync.1dmp.io:443",
+        "use_proxy": false
+    },
+    "24smi.net": {
+        "host": "24smi.net",
+        "use_proxy": false
+    },
+    "2mdn.net": {
+        "host": "s0.2mdn.net:443",
+        "use_proxy": false
+    },
+    "3lift.com": {
+        "host": "tlx.3lift.com:443",
+        "use_proxy": false
+    },
+    "acint.net": {
+        "host": "acint.net:443",
+        "use_proxy": false
+    },
+    "ad-m.asia": {
+        "host": "sync-dsp.ad-m.asia:443",
+        "use_proxy": false
+    },
+    "ad4m.at": {
+        "host": "ad4m.at:443",
+        "use_proxy": false
+    },
+    "adfinity.pro": {
+        "host": "cdn.adfinity.pro:443",
+        "use_proxy": true
+    },
+    "adform.net": {
+        "host": "adx.adform.net:443",
+        "use_proxy": true
+    },
+    "adfox.ru": {
+        "host": "ads.adfox.ru:443",
+        "use_proxy": false
+    },
+    "adgrx.com": {
+        "host": "cm.adgrx.com:443",
+        "use_proxy": true
+    },
+    "adhigh.net": {
+        "host": "px.adhigh.net:443",
+        "use_proxy": true
+    },
+    "adjust.com": {
+        "host": "app.adjust.com:443",
+        "use_proxy": false
+    },
+    "adlooxtracking.ru": {
+        "host": "pixel.adlooxtracking.ru:443",
+        "use_proxy": false
+    },
+    "adnxs.com": {
+        "host": "ib.adnxs.com:443",
+        "use_proxy": true
+    },
+    "adotmob.com": {
+        "host": "sync.adotmob.com:443",
+        "use_proxy": false
+    },
+    "adriver.ru": {
+        "host": "pb.adriver.ru:443",
+        "use_proxy": true
+    },
+    "adroll.com": {
+        "host": "d.adroll.com:443",
+        "use_proxy": true
+    },
+    "adtelligent.com": {
+        "host": "ghb.adtelligent.com:443",
+        "use_proxy": false
+    },
+    "afp.ai": {
+        "host": "cdn.afp.ai:443",
+        "use_proxy": true
+    },
+    "aidata.io": {
+        "host": "x01.aidata.io:443",
+        "use_proxy": false
+    },
+    "altergeo.ru": {
+        "host": "cm.p.altergeo.ru:443",
+        "use_proxy": false
+    },
+    "amazon-adsystem.com": {
+        "host": "c.amazon-adsystem.com:443",
+        "use_proxy": true
+    },
+    "amazonaws.com": {
+        "host": "kinesis.us-east-2.amazonaws.com:443",
+        "use_proxy": false
+    },
+    "ampproject.org": {
+        "host": "cdn.ampproject.org:443",
+        "use_proxy": false
+    },
+    "app-measurement.com": {
+        "host": "app-measurement.com:443",
+        "use_proxy": false
+    },
+    "appsflyer.com": {
+        "host": "inapps.appsflyer.com:443",
+        "use_proxy": true
+    },
+    "appsflyersdk.com": {
+        "host": "cdn-settings.appsflyersdk.com:443",
+        "use_proxy": false
+    },
+    "avast.com": {
+        "host": "shepherd.ff.avast.com:443",
+        "use_proxy": true
+    },
+    "avcdn.net": {
+        "host": "sp-766ec786.honzik.avcdn.net:443",
+        "use_proxy": false
+    },
+    "avito.ru": {
+        "host": "avito.ru",
+        "use_proxy": false
+    },
+    "avito.st": {
+        "host": "avito.st",
+        "use_proxy": false
+    },
+    "beeline.ru": {
+        "host": "vuf5wfbywuynhwf-mdt.ops.beeline.ru:443",
+        "use_proxy": true
+    },
+    "betcity.ru": {
+        "host": "cdn.betcity.ru:443",
+        "use_proxy": true
+    },
+    "betweendigital.com": {
+        "host": "ads.betweendigital.com:443",
+        "use_proxy": false
+    },
+    "bidswitch.net": {
+        "host": "x.bidswitch.net:443",
+        "use_proxy": true
+    },
+    "bidvol.com": {
+        "host": "ssp.bidvol.com:443",
+        "use_proxy": true
+    },
+    "bing.com": {
+        "host": "c.bing.com:443",
+        "use_proxy": true
+    },
+    "bluekai.com": {
+        "host": "stags.bluekai.com:443",
+        "use_proxy": false
+    },
+    "bridgertb.tech": {
+        "host": "bridgertb.tech:443",
+        "use_proxy": false
+    },
+    "bumlam.com": {
+        "host": "hb.bumlam.com:443",
+        "use_proxy": true
+    },
+    "buzzoola.com": {
+        "host": "exchange.buzzoola.com:443",
+        "use_proxy": false
+    },
+    "casalemedia.com": {
+        "host": "htlb.casalemedia.com:443",
+        "use_proxy": true
+    },
+    "catsnetwork.ru": {
+        "host": "catsnetwork.ru:443",
+        "use_proxy": false
+    },
+    "chitai-gorod.ru": {
+        "host": "mobile-gate.chitai-gorod.ru:443",
+        "use_proxy": false
+    },
+    "cloudflare.com": {
+        "host": "ajax.cloudflare.com:443",
+        "use_proxy": true
+    },
+    "cloudflareinsights.com": {
+        "host": "static.cloudflareinsights.com:443",
+        "use_proxy": true
+    },
+    "clym-sdk.net": {
+        "host": "widget.clym-sdk.net:443",
+        "use_proxy": false
+    },
+    "clym.io": {
+        "host": "partners.clym.io:443",
+        "use_proxy": false
+    },
+    "cnblogs.com": {
+        "host": "www.cnblogs.com:443",
+        "use_proxy": false
+    },
+    "com.au": {
+        "host": "www.smartguide.com.au:443",
+        "use_proxy": false
+    },
+    "com.ru": {
+        "host": "rtb.com.ru:443",
+        "use_proxy": false
+    },
+    "crashlytics.com": {
+        "host": "firebase-settings.crashlytics.com:443",
+        "use_proxy": false
+    },
+    "createjs.com": {
+        "host": "code.createjs.com:443",
+        "use_proxy": false
+    },
+    "creativecdn.com": {
+        "host": "prebid-eu.creativecdn.com:443",
+        "use_proxy": true
+    },
+    "criteo.com": {
+        "host": "bidder.criteo.com:443",
+        "use_proxy": true
+    },
+    "criteo.net": {
+        "host": "static.criteo.net:443",
+        "use_proxy": false
+    },
+    "demdex.net": {
+        "host": "dpm.demdex.net:443",
+        "use_proxy": true
+    },
+    "digitaleast.mobi": {
+        "host": "euexchangesync.digitaleast.mobi:443",
+        "use_proxy": true
+    },
+    "digitaltarget.ru": {
+        "host": "dmg.digitaltarget.ru:443",
+        "use_proxy": true
+    },
+    "directadvert.ru": {
+        "host": "code.directadvert.ru:443",
+        "use_proxy": true
+    },
+    "dnslytics.net": {
+        "host": "addon.dnslytics.net:443",
+        "use_proxy": false
+    },
+    "dotomi.com": {
+        "host": "apnx-match.dotomi.com:443",
+        "use_proxy": true
+    },
+    "doubleclick.net": {
+        "host": "stats.g.doubleclick.net:443",
+        "use_proxy": false
+    },
+    "dzen.ru": {
+        "host": "dzen.ru:443",
+        "use_proxy": true
+    },
+    "dzeninfra.ru": {
+        "host": "static.dzeninfra.ru:443",
+        "use_proxy": true
+    },
+    "e1.ru": {
+        "host": "www.e1.ru:443",
+        "use_proxy": false
+    },
+    "erne.co": {
+        "host": "grey.erne.co:443",
+        "use_proxy": true
+    },
+    "everesttech.net": {
+        "host": "sync-tm.everesttech.net:443",
+        "use_proxy": false
+    },
+    "extend.tv": {
+        "host": "sync.extend.tv:443",
+        "use_proxy": true
+    },
+    "facebook.com": {
+        "host": "www.facebook.com:443",
+        "use_proxy": true
+    },
+    "gammaplatform.com": {
+        "host": "cm-supply-web.gammaplatform.com:443",
+        "use_proxy": true
+    },
+    "garant.ru": {
+        "host": "www.garant.ru:443",
+        "use_proxy": false
+    },
+    "ggpht.com": {
+        "host": "yt3.ggpht.com:443",
+        "use_proxy": false
+    },
+    "giraff.io": {
+        "host": "code.giraff.io:443",
+        "use_proxy": true
+    },
+    "github.com": {
+        "host": "github.com:443",
+        "use_proxy": false
+    },
+    "github.io": {
+        "host": "phpvirtualbox.github.io:443",
+        "use_proxy": false
+    },
+    "githubassets.com": {
+        "host": "github.githubassets.com:443",
+        "use_proxy": true
+    },
+    "githubusercontent.com": {
+        "host": "avatars.githubusercontent.com:443",
+        "use_proxy": false
+    },
+    "glotgrx.com": {
+        "host": "pre.glotgrx.com:443",
+        "use_proxy": true
+    },
+    "gmail.com": {
+        "host": "gmail.com",
+        "use_proxy": false
+    },
+    "gnezdo.ru": {
+        "host": "fcgi4.gnezdo.ru:443",
+        "use_proxy": false
+    },
+    "google-analytics.com": {
+        "host": "www.google-analytics.com:443",
+        "use_proxy": false
+    },
+    "google.com": {
+        "host": "signaler-pa.clients6.google.com:443",
+        "use_proxy": false
+    },
+    "google.ru": {
+        "host": "www.google.ru:443",
+        "use_proxy": false
+    },
+    "googleadservices.com": {
+        "host": "www.googleadservices.com:443",
+        "use_proxy": false
+    },
+    "googleapis.com": {
+        "host": "content-autofill.googleapis.com:443",
+        "use_proxy": false
+    },
+    "googlesyndication.com": {
+        "host": "pagead2.googlesyndication.com:443",
+        "use_proxy": false
+    },
+    "googletagmanager.com": {
+        "host": "www.googletagmanager.com:443",
+        "use_proxy": false
+    },
+    "googletagservices.com": {
+        "host": "www.googletagservices.com:443",
+        "use_proxy": false
+    },
+    "googleusercontent.com": {
+        "host": "lh5.googleusercontent.com:443",
+        "use_proxy": false
+    },
+    "googlevideo.com": {
+        "host": "redirector.googlevideo.com:443",
+        "use_proxy": false
+    },
+    "gravatar.com": {
+        "host": "secure.gravatar.com:443",
+        "use_proxy": false
+    },
+    "gstatic.com": {
+        "host": "ssl.gstatic.com:443",
+        "use_proxy": false
+    },
+    "gvt1.com": {
+        "host": "rr5---sn-jvhnu5g-n8me.gvt1.com:443",
+        "use_proxy": false
+    },
+    "habr.com": {
+        "host": "habr.com",
+        "use_proxy": false
+    },
+    "hbrd.io": {
+        "host": "st.hbrd.io:443",
+        "use_proxy": false
+    },
+    "hicloud.com": {
+        "host": "connect-drru.hispace.hicloud.com:443",
+        "use_proxy": true
+    },
+    "hsto.org": {
+        "host": "hsto.org",
+        "use_proxy": false
+    },
+    "hsto.ru": {
+        "host": "hsto.ru",
+        "use_proxy": false
+    },
+    "huami.com": {
+        "host": "api-mifit.huami.com:443",
+        "use_proxy": false
+    },
+    "hybrid.ai": {
+        "host": "hbe199.hybrid.ai:443",
+        "use_proxy": true
+    },
+    "ia-dmp.com": {
+        "host": "ia-dmp.com:443",
+        "use_proxy": false
+    },
+    "ibb.co": {
+        "host": "i.ibb.co:443",
+        "use_proxy": false
+    },
+    "img-gorod.ru": {
+        "host": "img-gorod.ru",
+        "use_proxy": false
+    },
+    "imgur.com": {
+        "host": "i.stack.imgur.com:443",
+        "use_proxy": false
+    },
+    "indexww.com": {
+        "host": "js-sec.indexww.com:443",
+        "use_proxy": false
+    },
+    "informatiweb.net": {
+        "host": "us.informatiweb.net:443",
+        "use_proxy": false
+    },
+    "instreamvideo.ru": {
+        "host": "instreamvideo.ru:443",
+        "use_proxy": false
+    },
+    "ipify.org": {
+        "host": "api64.ipify.org:443",
+        "use_proxy": false
+    },
+    "iportal.ru": {
+        "host": "cdn.iportal.ru:443",
+        "use_proxy": false
+    },
+    "ipredictive.com": {
+        "host": "sync.ipredictive.com:443",
+        "use_proxy": false
+    },
+    "itemimg.com": {
+        "host": "b.itemimg.com:443",
+        "use_proxy": true
+    },
+    "jotfor.ms": {
+        "host": "cdn02.jotfor.ms:443",
+        "use_proxy": false
+    },
+    "jotform.com": {
+        "host": "form.jotform.com:443",
+        "use_proxy": false
+    },
+    "jquery.com": {
+        "host": "code.jquery.com:443",
+        "use_proxy": false
+    },
+    "jsdelivr.net": {
+        "host": "cdn.jsdelivr.net:443",
+        "use_proxy": false
+    },
+    "kimberlite.io": {
+        "host": "kimberlite.io:443",
+        "use_proxy": false
+    },
+    "kinoafisha.info": {
+        "host": "www.kinoafisha.info:443",
+        "use_proxy": true
+    },
+    "kommersant.ru": {
+        "host": "www.kommersant.ru:443",
+        "use_proxy": false
+    },
+    "konnektu.ru": {
+        "host": "pixel.konnektu.ru:443",
+        "use_proxy": false
+    },
+    "krxd.net": {
+        "host": "beacon.krxd.net:443",
+        "use_proxy": true
+    },
+    "labirint.ru": {
+        "host": "labirint.ru",
+        "use_proxy": false
+    },
+    "liadm.com": {
+        "host": "i.liadm.com:443",
+        "use_proxy": true
+    },
+    "lifewire.com": {
+        "host": "www.lifewire.com:443",
+        "use_proxy": false
+    },
+    "linkedin.com": {
+        "host": "px.ads.linkedin.com:443",
+        "use_proxy": false
+    },
+    "linuxconfig.org": {
+        "host": "linuxconfig.org:443",
+        "use_proxy": true
+    },
+    "livelib.ru": {
+        "host": "www.livelib.ru:443",
+        "use_proxy": false
+    },
+    "loopme.me": {
+        "host": "csync.loopme.me:443",
+        "use_proxy": true
+    },
+    "lp4.io": {
+        "host": "pp.lp4.io:443",
+        "use_proxy": false
+    },
+    "mail.ru": {
+        "host": "mail.ru",
+        "use_proxy": false
+    },
+    "mdhv.io": {
+        "host": "jelly.mdhv.io:443",
+        "use_proxy": false
+    },
+    "media.net": {
+        "host": "contextual.media.net:443",
+        "use_proxy": false
+    },
+    "mediahils.ru": {
+        "host": "px8027165026.mediahils.ru:443",
+        "use_proxy": false
+    },
+    "mediatoday.ru": {
+        "host": "mediatoday.ru:443",
+        "use_proxy": false
+    },
+    "meduza.io": {
+        "host": "meduza.io:443",
+        "use_proxy": false
+    },
+    "meshok.net": {
+        "host": "meshok.net:443",
+        "use_proxy": false
+    },
+    "mindbox.ru": {
+        "host": "mindbox.ru",
+        "use_proxy": false
+    },
+    "miui.com": {
+        "host": "mcc-intl.inf.miui.com:443",
+        "use_proxy": false
+    },
+    "mozilla.net": {
+        "host": "mozilla.net",
+        "use_proxy": false
+    },
+    "mradx.net": {
+        "host": "r.mradx.net:443",
+        "use_proxy": true
+    },
+    "mts.ru": {
+        "host": "sm.rtb.mts.ru:443",
+        "use_proxy": true
+    },
+    "mycdn.me": {
+        "host": "mycdn.me",
+        "use_proxy": false
+    },
+    "navalnyteam.com": {
+        "host": "survey.navalnyteam.com:443",
+        "use_proxy": false
+    },
+    "net.in": {
+        "host": "app.adjust.net.in:443",
+        "use_proxy": false
+    },
+    "ngenix.net": {
+        "host": "s73937.cdn.ngenix.net:443",
+        "use_proxy": false
+    },
+    "ngs.ru": {
+        "host": "static.ngs.ru:443",
+        "use_proxy": true
+    },
+    "notsy.io": {
+        "host": "cdn-b.notsy.io:443",
+        "use_proxy": false
+    },
+    "onelink.me": {
+        "host": "impressions.onelink.me:443",
+        "use_proxy": true
+    },
+    "onesignal.com": {
+        "host": "cdn.onesignal.com:443",
+        "use_proxy": false
+    },
+    "otm-r.com": {
+        "host": "yhb.p.otm-r.com:443",
+        "use_proxy": false
+    },
+    "ozon.ru": {
+        "host": "ozon.ru",
+        "use_proxy": false
+    },
+    "ozone.ru": {
+        "host": "ozone.ru",
+        "use_proxy": false
+    },
+    "ozonusercontent.com": {
+        "host": "cdn1.ozonusercontent.com:443",
+        "use_proxy": false
+    },
+    "phoenixnap.com": {
+        "host": "phoenixnap.com:443",
+        "use_proxy": false
+    },
+    "plista.com": {
+        "host": "farm.plista.com:443",
+        "use_proxy": true
+    },
+    "pochta.ru": {
+        "host": "pochta.ru",
+        "use_proxy": false
+    },
+    "podpisnie.ru": {
+        "host": "www.podpisnie.ru:443",
+        "use_proxy": false
+    },
+    "postrelease.com": {
+        "host": "jadserve.postrelease.com:443",
+        "use_proxy": false
+    },
+    "pricelib.ru": {
+        "host": "www.pricelib.ru:443",
+        "use_proxy": true
+    },
+    "prodmp.ru": {
+        "host": "prodmp.ru:443",
+        "use_proxy": false
+    },
+    "punchmedia.ru": {
+        "host": "cdn.punchmedia.ru:443",
+        "use_proxy": false
+    },
+    "px.adhit": {
+        "host": "px.adhit:443",
+        "use_proxy": true
+    },
+    "qq.com": {
+        "host": "res.wx.qq.com:443",
+        "use_proxy": false
+    },
+    "quora.com": {
+        "host": "www.quora.com:443",
+        "use_proxy": false
+    },
+    "quoracdn.net": {
+        "host": "qsbr.cf2.quoracdn.net:443",
+        "use_proxy": true
+    },
+    "redllama.ru": {
+        "host": "redllama.ru:443",
+        "use_proxy": false
+    },
+    "relap.io": {
+        "host": "relap.io:443",
+        "use_proxy": false
+    },
+    "rfihub.com": {
+        "host": "p.rfihub.com:443",
+        "use_proxy": false
+    },
+    "riamediabank.ru": {
+        "host": "riamediabank.ru:443",
+        "use_proxy": false
+    },
+    "rkdms.com": {
+        "host": "mid.rkdms.com:443",
+        "use_proxy": false
+    },
+    "rlcdn.com": {
+        "host": "idsync.rlcdn.com:443",
+        "use_proxy": false
+    },
+    "rqtrk.eu": {
+        "host": "wt.rqtrk.eu:443",
+        "use_proxy": false
+    },
+    "rutarget.ru": {
+        "host": "adfox-hb-bidder.rutarget.ru:443",
+        "use_proxy": true
+    },
+    "sape.ru": {
+        "host": "ssp-rtb.sape.ru:443",
+        "use_proxy": true
+    },
+    "sberbank.ru": {
+        "host": "stat.online.sberbank.ru:443",
+        "use_proxy": true
+    },
+    "sbrf.ru": {
+        "host": "vito.sbrf.ru:443",
+        "use_proxy": false
+    },
+    "scorecardresearch.com": {
+        "host": "sb.scorecardresearch.com:443",
+        "use_proxy": false
+    },
+    "semasio.net": {
+        "host": "uipglob.semasio.net:443",
+        "use_proxy": true
+    },
+    "serving-sys.ru": {
+        "host": "bs.serving-sys.ru:443",
+        "use_proxy": true
+    },
+    "sharethrough.com": {
+        "host": "match.sharethrough.com:443",
+        "use_proxy": true
+    },
+    "simpli.fi": {
+        "host": "um.simpli.fi:443",
+        "use_proxy": false
+    },
+    "skwstat.ru": {
+        "host": "e4.skwstat.ru:443",
+        "use_proxy": true
+    },
+    "smartadserver.com": {
+        "host": "ssbsync.smartadserver.com:443",
+        "use_proxy": true
+    },
+    "smi2.net": {
+        "host": "static.smi2.net:443",
+        "use_proxy": true
+    },
+    "smi2.ru": {
+        "host": "smi2.ru:443",
+        "use_proxy": false
+    },
+    "solta.io": {
+        "host": "sync.dsp.solta.io:443",
+        "use_proxy": true
+    },
+    "spbdnevnik.ru": {
+        "host": "spbdnevnik.ru:443",
+        "use_proxy": false
+    },
+    "sport24.ru": {
+        "host": "sport24.ru:443",
+        "use_proxy": false
+    },
+    "sportbox.ru": {
+        "host": "news.sportbox.ru:443",
+        "use_proxy": false
+    },
+    "spotim.market": {
+        "host": "sync.spotim.market:443",
+        "use_proxy": false
+    },
+    "spotxchange.com": {
+        "host": "sync.search.spotxchange.com:443",
+        "use_proxy": true
+    },
+    "stackoverflow.com": {
+        "host": "stackoverflow.com:443",
+        "use_proxy": false
+    },
+    "stat.media": {
+        "host": "stat.media:443",
+        "use_proxy": true
+    },
+    "statmedia.ru": {
+        "host": "statmedia.ru:443",
+        "use_proxy": true
+    },
+    "stickyadstv.com": {
+        "host": "ads.stickyadstv.com:443",
+        "use_proxy": false
+    },
+    "streamgo.ru": {
+        "host": "cdn.streamgo.ru:443",
+        "use_proxy": false
+    },
+    "sundaysky.com": {
+        "host": "vop.sundaysky.com:443",
+        "use_proxy": false
+    },
+    "superjob.ru": {
+        "host": "www.superjob.ru:443",
+        "use_proxy": false
+    },
+    "t.me": {
+        "host": "t.me:443",
+        "use_proxy": false
+    },
+    "technoratimedia.com": {
+        "host": "uat-net.technoratimedia.com:443",
+        "use_proxy": true
+    },
+    "techrepublic.com": {
+        "host": "www.techrepublic.com:443",
+        "use_proxy": false
+    },
+    "tele2.ru": {
+        "host": "tele2.ru",
+        "use_proxy": false
+    },
+    "telecid.ru": {
+        "host": "px8021682890035070.telecid.ru:443",
+        "use_proxy": false
+    },
+    "telegram-cdn.org": {
+        "host": "cdn4.telegram-cdn.org:443",
+        "use_proxy": false
+    },
+    "telegram.org": {
+        "host": "telegram.org:443",
+        "use_proxy": false
+    },
+    "test.org": {
+        "host": "test.org",
+        "use_proxy": false
+    },
+    "tg.dev": {
+        "host": "oauth.tg.dev:443",
+        "use_proxy": false
+    },
+    "thrtle.com": {
+        "host": "thrtle.com:443",
+        "use_proxy": false
+    },
+    "tns-counter.ru": {
+        "host": "www.tns-counter.ru:443",
+        "use_proxy": false
+    },
+    "toast.com": {
+        "host": "cm-exchange.toast.com:443",
+        "use_proxy": false
+    },
+    "top100.ru": {
+        "host": "st.top100.ru:443",
+        "use_proxy": true
+    },
+    "trex.media": {
+        "host": "nst.trex.media:443",
+        "use_proxy": true
+    },
+    "tribalfusion.com": {
+        "host": "a.tribalfusion.com:443",
+        "use_proxy": false
+    },
+    "truoptik.com": {
+        "host": "dmp.truoptik.com:443",
+        "use_proxy": true
+    },
+    "turn.com": {
+        "host": "ad.turn.com:443",
+        "use_proxy": false
+    },
+    "ubuntu.com": {
+        "host": "ubuntu.com:443",
+        "use_proxy": false
+    },
+    "ubuntu.ru": {
+        "host": "help.ubuntu.ru:443",
+        "use_proxy": false
+    },
+    "udmserve.net": {
+        "host": "rt.udmserve.net:443",
+        "use_proxy": false
+    },
+    "uma.media": {
+        "host": "id.uma.media:443",
+        "use_proxy": false
+    },
+    "userapi.com": {
+        "host": "userapi.com",
+        "use_proxy": false
+    },
+    "userreport.com": {
+        "host": "audex.userreport.com:443",
+        "use_proxy": true
+    },
+    "utyug.media": {
+        "host": "api-leprechaun.utyug.media:443",
+        "use_proxy": false
+    },
+    "uuidksinc.net": {
+        "host": "s.uuidksinc.net:443",
+        "use_proxy": true
+    },
+    "uxfeedback.ru": {
+        "host": "public-api.uxfeedback.ru:443",
+        "use_proxy": false
+    },
+    "videonow.ru": {
+        "host": "adx.videonow.ru:443",
+        "use_proxy": true
+    },
+    "vidoomy.com": {
+        "host": "vid.vidoomy.com:443",
+        "use_proxy": false
+    },
+    "viqeo.tv": {
+        "host": "cdn.viqeo.tv:443",
+        "use_proxy": false
+    },
+    "virtualbox.org": {
+        "host": "www.virtualbox.org:443",
+        "use_proxy": false
+    },
+    "vk.com": {
+        "host": "vk.com",
+        "use_proxy": false
+    },
+    "vk.ru": {
+        "host": "vk.ru:443",
+        "use_proxy": false
+    },
+    "vkuseraudio.com": {
+        "host": "vkuseraudio.com",
+        "use_proxy": false
+    },
+    "vkuseraudio.net": {
+        "host": "vkuseraudio.net",
+        "use_proxy": false
+    },
+    "w3schools.com": {
+        "host": "www.w3schools.com:443",
+        "use_proxy": false
+    },
+    "w55c.net": {
+        "host": "pm.w55c.net:443",
+        "use_proxy": false
+    },
+    "weborama-tech.ru": {
+        "host": "wcm.weborama-tech.ru:443",
+        "use_proxy": false
+    },
+    "weborama.com": {
+        "host": "cstatic.weborama.com:443",
+        "use_proxy": false
+    },
+    "weborama.fr": {
+        "host": "redirect.frontend.weborama.fr:443",
+        "use_proxy": true
+    },
+    "webpkgcache.com": {
+        "host": "linuxconfig-org.webpkgcache.com:443",
+        "use_proxy": false
+    },
+    "whatsapp.net": {
+        "host": "static.whatsapp.net:443",
+        "use_proxy": false
+    },
+    "whoer.net": {
+        "host": "whoer.net",
+        "use_proxy": true
+    },
+    "wi-fi.ru": {
+        "host": "s3.wi-fi.ru:443",
+        "use_proxy": true
+    },
+    "wikimedia.org": {
+        "host": "login.wikimedia.org:443",
+        "use_proxy": false
+    },
+    "wikipedia.org": {
+        "host": "ru.m.wikipedia.org:443",
+        "use_proxy": false
+    },
+    "xiaomi.com": {
+        "host": "global.market.xiaomi.com:443",
+        "use_proxy": true
+    },
+    "xiaomi.net": {
+        "host": "us.statusapi.micloud.xiaomi.net:443",
+        "use_proxy": false
+    },
+    "y-medialink.com": {
+        "host": "prod.y-medialink.com:443",
+        "use_proxy": false
+    },
+    "yadro.ru": {
+        "host": "yadro.ru",
+        "use_proxy": false
+    },
+    "yahoo.com": {
+        "host": "pr-bh.ybp.yahoo.com:443",
+        "use_proxy": true
+    },
+    "yandex-net.ru": {
+        "host": "mobpayment.yandex-net.ru:443",
+        "use_proxy": false
+    },
+    "yandex.net": {
+        "host": "yandex.net",
+        "use_proxy": false
+    },
+    "yandex.ru": {
+        "host": "yandex.ru",
+        "use_proxy": false
+    },
+    "yandexmetrica.com": {
+        "host": "yandexmetrica.com:30103",
+        "use_proxy": true
+    },
+    "yastatic.net": {
+        "host": "yastatic.net:443",
+        "use_proxy": false
+    },
+    "ymetrica1.com": {
+        "host": "ymetrica1.com:443",
+        "use_proxy": true
+    },
+    "youtube.com": {
+        "host": "www.youtube.com:443",
+        "use_proxy": false
+    },
+    "ytimg.com": {
+        "host": "i.ytimg.com:443",
+        "use_proxy": false
+    },
+    "zemanta.com": {
+        "host": "b1sync.zemanta.com:443",
+        "use_proxy": false
+    }
+}

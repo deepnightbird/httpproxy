@@ -1,0 +1,18 @@
+[Unit]
+Description=httpproxy service
+After=network.target
+
+[Service]
+Type=simple
+#EnvironmentFile=/etc/default/pproxy
+ExecStart=/opt/httpproxy/httpproxy /opt/httpproxy/httpproxy.ini
+ExecStop=/bin/kill `/usr/bin/pgrep httpproxy`
+TimeoutStopSec=5s
+LimitNOFILE=1048576
+LimitNPROC=512
+PrivateTmp=true
+ProtectSystem=full
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

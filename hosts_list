@@ -1,0 +1,126 @@
+{
+    "24smi.net": {
+        "host": "24smi.net",
+        "use_proxy": false
+    },
+    "alicdn.com": {
+        "host": "alicdn.com",
+        "use_proxy": false
+    },
+    "avito.ru": {
+        "host": "avito.ru",
+        "use_proxy": false
+    },
+    "avito.st": {
+        "host": "avito.st",
+        "use_proxy": false
+    },
+    "gmail.com": {
+        "host": "gmail.com",
+        "use_proxy": false
+    },
+    "google.com": {
+        "host": "google.com",
+        "use_proxy": false
+    },
+    "googleapis.com": {
+        "host": "xgapromomanager-pa.googleapis.com:443",
+        "use_proxy": false
+    },
+    "gordonua.com": {
+        "host": "gordonua.com",
+        "use_proxy": true
+    },
+    "habr.com": {
+        "host": "habr.com",
+        "use_proxy": false
+    },
+    "hsto.org": {
+        "host": "hsto.org",
+        "use_proxy": false
+    },
+    "hsto.ru": {
+        "host": "hsto.ru",
+        "use_proxy": false
+    },
+    "img-gorod.ru": {
+        "host": "img-gorod.ru",
+        "use_proxy": false
+    },
+    "labirint.ru": {
+        "host": "labirint.ru",
+        "use_proxy": false
+    },
+    "mail.ru": {
+        "host": "mail.ru",
+        "use_proxy": false
+    },
+    "mindbox.ru": {
+        "host": "mindbox.ru",
+        "use_proxy": false
+    },
+    "mozilla.net": {
+        "host": "mozilla.net",
+        "use_proxy": false
+    },
+    "mycdn.me": {
+        "host": "mycdn.me",
+        "use_proxy": false
+    },
+    "ozon.ru": {
+        "host": "ozon.ru",
+        "use_proxy": false
+    },
+    "ozone.ru": {
+        "host": "ozone.ru",
+        "use_proxy": false
+    },
+    "pochta.ru": {
+        "host": "pochta.ru",
+        "use_proxy": false
+    },
+    "rollbar.com": {
+        "host": "rollbar.com",
+        "use_proxy": false
+    },
+    "tele2.ru": {
+        "host": "tele2.ru",
+        "use_proxy": false
+    },
+    "test.org": {
+        "host": "test.org",
+        "use_proxy": false
+    },
+    "userapi.com": {
+        "host": "userapi.com",
+        "use_proxy": false
+    },
+    "vk.com": {
+        "host": "vk.com",
+        "use_proxy": false
+    },
+    "vkuseraudio.com": {
+        "host": "vkuseraudio.com",
+        "use_proxy": false
+    },
+    "vkuseraudio.net": {
+        "host": "vkuseraudio.net",
+        "use_proxy": false
+    },
+    "whoer.net": {
+        "host": "whoer.net",
+        "use_proxy": true
+    },
+    "yadro.ru": {
+        "host": "yadro.ru",
+        "use_proxy": false
+    },
+    "yandex.net": {
+        "host": "yandex.net",
+        "use_proxy": false
+    },
+    "yandex.ru": {
+        "host": "yandex.ru",
+        "use_proxy": false
+    }
+}
