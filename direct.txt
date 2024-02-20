@@ -11,7 +11,6 @@ gmail.com
 avito.st
 ozon.ru
 ozone.ru
-google.com
 avito.ru
 tele2.ru
 labirint.ru
@@ -38,3 +37,4 @@ uxfeedback.ru
 alib.ru
 rezka.ag
 nextdns.io
+ooklaserver.net

@@ -10,10 +10,14 @@ bbc.com
 co.uk
 meduza.io
 theins.ru
-linkedin.com
+*.linkedin.com
 unian.net
 vk.com
 habr.com
 cdninstagram.com
 prostovpn.org
 twimg.com
+play.google.com
+*.googleusercontent.com
+fonts.gstatic.com
+*.googleapis.com
