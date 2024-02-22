@@ -3,10 +3,10 @@ package main
 import (
 	"bufio"
 	"crypto/tls"
+	"encoding/json"
 	"errors"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"log"
 	"math/rand"
 	"net"
@@ -15,6 +15,7 @@ import (
 	"os"
 	"path/filepath"
 	"runtime"
+	"slices"
 	"strconv"
 	"strings"
 	"sync"
@@ -29,7 +30,7 @@ import (
 	"golang.org/x/net/proxy"
 )
 
-const version = "0.1.1.0"
+const version = "0.2.0.0"
 
 var (
 	hosts_list         map[string]*HostItem
@@ -37,14 +38,17 @@ var (
 	clients_list       map[string]string
 	adblock_list_mutex = &sync.RWMutex{}
 	adblock_list       map[string]int
+	block_list         Block_List
 	myClient           *http.Client
 	conf               Config
 	//work_dir string
-	exe_file       string
-	ini_file       string
-	dialerList     []proxy.Dialer
-	dialer_best    int
-	proc_set_title uintptr = 0
+	exe_file    string
+	ini_file    string
+	dialerList  []proxy.Dialer
+	dialer_best int
+
+	pKernelDll   *syscall.LazyDLL
+	pKernelTitle *syscall.LazyProc
 )
 
 func mylog(text string) {
@@ -215,20 +219,22 @@ func load_lists() {
 						scanner := bufio.NewScanner(file)
 						hosts_list_mutex.Lock()
 						for scanner.Scan() {
-							t := scanner.Text()
-							if t[0:1] == "#" || len(t) == 0 {
+							t := strings.TrimSpace(scanner.Text())
+							if len(t) == 0 {
 								continue
 							}
-							if strings.Contains(t, "#") {
-								t = strings.Split(t, "#")[0]
+							if t[0:1] == "#" {
+								continue
 							}
-							t = strings.TrimSpace(t)
+							if i := strings.Index(t, "#"); i > 0 {
+								t = strings.TrimSpace(t[:i])
+							}
 							p, in = hosts_list[t]
 							if !in {
-								p = new(HostItem)
-								p.Use_proxy = false
-								p.Host = t
-								hosts_list[t] = p
+								n := new(HostItem)
+								n.Use_proxy = false
+								n.Host = t
+								hosts_list[t] = n
 								mylog("Added direct " + t)
 								bAnyChanges = true
 							} else {
@@ -257,14 +263,16 @@ func load_lists() {
 						scanner := bufio.NewScanner(file)
 						hosts_list_mutex.Lock()
 						for scanner.Scan() {
-							t := scanner.Text()
-							if t[0:1] == "#" || len(t) == 0 {
+							t := strings.TrimSpace(scanner.Text())
+							if len(t) == 0 {
 								continue
 							}
-							if strings.Contains(t, "#") {
-								t = strings.Split(t, "#")[0]
+							if t[0:1] == "#" {
+								continue
 							}
-							t = strings.TrimSpace(t)
+							if i := strings.Index(t, "#"); i > 0 {
+								t = strings.TrimSpace(t[:i])
+							}
 							p, in = hosts_list[t]
 							if !in {
 								p = new(HostItem)
@@ -317,24 +325,59 @@ func load_lists() {
 	}
 }
 
+func load_from_backup() {
+	if len(conf.BlockListBackup) == 0 {
+		return
+	}
+	jsonfile, err := os.Open(conf.BlockListBackup)
+	if err != nil {
+		return
+	}
+	defer jsonfile.Close()
+	jsonbytes, _ := io.ReadAll(jsonfile)
+	_ = json.Unmarshal(jsonbytes, &block_list)
+}
+
+func save_to_backup() {
+	if len(conf.BlockListBackup) == 0 {
+		return
+	}
+	// jsonbytes, _ := json.Marshal(&block_list)
+	jsonbytes, _ := json.MarshalIndent(&block_list, "", "    ")
+	_ = os.WriteFile(conf.BlockListBackup, jsonbytes, 0644)
+}
+
+func load_block_list() {
+	// https://reestr.rublacklist.net/api/v2/domains/json/
+	resp, err := http.Get(conf.BlockListPath)
+	if err != nil {
+		load_from_backup()
+	} else {
+		defer resp.Body.Close()
+		body, _ := io.ReadAll(resp.Body)
+		err = json.Unmarshal(body, &block_list)
+		if err != nil {
+			load_from_backup()
+		} else {
+			save_to_backup()
+		}
+	}
+	if len(block_list) > 0 {
+		mylog("Block list loaded, items " + strconv.Itoa(len(block_list)))
+	}
+}
+
 func getTimestamp() int64 {
 	return time.Now().UnixNano() / 1e6
 }
 
-func set_title(title string) (int, error) {
-	if proc_set_title == 0 {
-		handle, err := syscall.LoadLibrary("Kernel32.dll")
-		if err != nil {
-			return 0, err
-		}
-		defer syscall.FreeLibrary(handle)
-		proc_set_title, err = syscall.GetProcAddress(handle, "SetConsoleTitleW")
-		if err != nil {
-			return 0, err
-		}
+func set_title(title string) {
+	if pKernelDll == nil {
+		pKernelDll = syscall.NewLazyDLL("Kernel32.dll")
+		pKernelTitle = pKernelDll.NewProc("SetConsoleTitleW")
 	}
-	r, _, err := syscall.Syscall(proc_set_title, 1, uintptr(unsafe.Pointer(syscall.StringToUTF16Ptr(title))), 0, 0)
-	return int(r), err
+	tu16, _ := syscall.UTF16PtrFromString(title)
+	_, _, _ = syscall.SyscallN(pKernelTitle.Addr(), uintptr(unsafe.Pointer(tu16)), 0, 0)
 }
 
 func check_direct(phost string) bool {
@@ -348,7 +391,6 @@ func check_direct(phost string) bool {
 	req.Header.Set("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36")
 	req.Header.Set("Accept", "text/html,application/xhtml+xml,application/xml")
 	req.Header.Set("Accept-Charset", "ISO-8859-1,utf-8")
-	//req.Header.Set("Host", "rezka.ag")
 	req.Header.Set("Accept-Encoding", "none")
 	req.Header.Set("Accept-Language", "ru-RU,ru;en-US,en;q=0.8")
 	req.Header.Set("cache-control", "max-age=0")
@@ -441,8 +483,12 @@ func resolve(phost string) string {
 	if results, err := dns.Exchange(phost, conf.DNSresolver, dns.TypeA); err == nil {
 		for _, r := range results {
 			// mylog(r.Record, r.Type, r.Ttl, r.Priority, r.Content)
-			record = r.Content
-			break
+			if r.Ttl > 0 {
+				record = r.Content
+				if len(record) > 0 {
+					break
+				}
+			}
 		}
 	} else {
 		mylog(err.Error())
@@ -450,17 +496,22 @@ func resolve(phost string) string {
 	return record
 }
 
-func is_use_proxy(phost string, premote string) int {
+func is_use_proxy(phost string, premote string, pipaddr *string) int {
 
 	var host string = phost
 
-	var ipaddr string
+	//var ipaddr string
 	i := strings.Index(host, ":")
 	if i > -1 {
 		host = host[:i]
 	}
+	*pipaddr = resolve(host)
+	if len(*pipaddr) < 7 || strings.Contains(*pipaddr, "0.0.0.0") || strings.Contains(*pipaddr, "127.0.0.") {
+		return -1
+	}
+	//mylog(host + " " + *pipaddr)
 
-	if !checkIPAddress(host) {
+	/*if !checkIPAddress(host) {
 		if conf.DNSresolver != "" {
 			ipaddr = resolve(host)
 			if ipaddr == "127.0.0.0" || ipaddr == "0.0.0.0" {
@@ -475,35 +526,68 @@ func is_use_proxy(phost string, premote string) int {
 				return -1
 			}
 		}
-	}
-	var p *HostItem
+	}*/
 	var in_phost bool
+	var use_proxy bool
+	var in_block_list bool = false
 
-	p, in_phost = hosts_list[host]
-	if !in_phost {
-		i := strings.Count(host, ".")
-		if i == 2 {
-			i := strings.Index(host, ".")
-			hostmask := "*" + host[i:]
-			p, in_phost = hosts_list[hostmask]
+	if len(block_list) > 0 {
+		use_proxy = slices.Contains(block_list, host)
+		if !use_proxy {
+			i := strings.Count(host, ".")
+			if i == 2 {
+				i := strings.Index(host, ".")
+				use_proxy = slices.Contains(block_list, "*"+host[i:])
+			} else if i == 1 {
+				use_proxy = slices.Contains(block_list, "*."+host)
+			}
 		}
-	}
-	if !in_phost {
-		// mylog("Check " + mainhost)
-		p = new(HostItem)
-		p.Host = host
-		p.Use_proxy = !check_direct("https://" + host)
-		hosts_list_mutex.Lock()
-		hosts_list[host] = p
-		//hosts_list[phost] = p
-		hosts_list_mutex.Unlock()
-	}
-	if p.Use_proxy {
-		mylog(CL_YELLOW + premote + CL_LIGHT_CYAN + " proxy " + CL_RESET + host)
 	} else {
-		mylog(CL_YELLOW + premote + CL_RESET + " direct " + host)
+		use_proxy = false
 	}
-	if p.Use_proxy {
+	if !use_proxy {
+		var p *HostItem
+		p, in_phost = hosts_list[host]
+		if !in_phost {
+			i := strings.Count(host, ".")
+			if i == 2 {
+				i := strings.Index(host, ".")
+				hostmask := "*" + host[i:]
+				p, in_phost = hosts_list[hostmask]
+			} else if i == 1 {
+				p, in_phost = hosts_list["*."+host]
+			}
+		}
+		if !in_phost {
+			if conf.CheckDirect {
+				// mylog("Check " + mainhost)
+				p = new(HostItem)
+				p.Host = host
+				p.Use_proxy = !check_direct("https://" + host)
+				use_proxy = p.Use_proxy
+				hosts_list_mutex.Lock()
+				hosts_list[host] = p
+				//hosts_list[phost] = p
+				hosts_list_mutex.Unlock()
+			}
+		} else {
+			use_proxy = p.Use_proxy
+		}
+	} else {
+		in_block_list = true
+	}
+	if use_proxy {
+		if in_block_list {
+			mylog(CL_YELLOW + premote + CL_LIGHT_CYAN + " proxy block list " + CL_RESET + host + " (" + *pipaddr + ")")
+		} else if in_phost {
+			mylog(CL_YELLOW + premote + CL_LIGHT_CYAN + " proxy host list " + CL_RESET + host + " (" + *pipaddr + ")")
+		} else {
+			mylog(CL_YELLOW + premote + CL_LIGHT_CYAN + " proxy " + CL_RESET + host + " (" + *pipaddr + ")")
+		}
+	} else {
+		mylog(CL_YELLOW + premote + CL_RESET + " direct " + host + " (" + *pipaddr + ")")
+	}
+	if use_proxy {
 		return 1
 	} else {
 		return 0
@@ -534,7 +618,7 @@ func sel_best_dialer() {
 			if strings.Contains(proxyUrl.Scheme, "socks") {
 				dialSocksProxy, err := proxy.SOCKS5("tcp", proxyUrl.Host, nil, proxy.Direct)
 				if err != nil {
-					log.Println("Error connecting to proxy:", err)
+					mylog("Error connecting to proxy: " + err.Error())
 					continue
 				} else {
 					transport.Dial = dialSocksProxy.Dial
@@ -554,13 +638,13 @@ func sel_best_dialer() {
 			resp, err := client.Get(test_url)
 			elapsed := time.Since(start).Seconds()
 			if err == nil {
-				log.Println(p.Name + " " + fmt.Sprintf("%0.2f", elapsed))
+				mylog(p.Name + " " + fmt.Sprintf("%0.2f", elapsed))
 				if elapsed < min_time {
 					min_time = elapsed
 					min_index = i
 				}
 			} else {
-				log.Println(p.Name + " no response " + err.Error())
+				mylog(p.Name + " no response " + err.Error())
 			}
 			if resp != nil {
 				resp.Body.Close()
@@ -568,7 +652,7 @@ func sel_best_dialer() {
 		}
 		if min_index != -1 && min_index != dialer_best {
 			dialer_best = min_index
-			log.Println("best dialer " + conf.ProxyList[dialer_best].Name)
+			mylog("best dialer " + conf.ProxyList[dialer_best].Name)
 			set_title("http-proxy " + strftime.Format(time.Now(), "%m.%d %H:%M:%S") + " " + conf.ProxyList[dialer_best].Name)
 		}
 		time.Sleep(time.Second * time.Duration(600))
@@ -581,10 +665,26 @@ func handleTunneling(w http.ResponseWriter, r *http.Request) {
 	    w.WriteHeader(http.StatusNoContent)
 	    return
 	}*/
-	var use_proxy int = 0
-	if dialer_best != -1 {
-		use_proxy = is_use_proxy(r.Host, remote_name)
+
+	var port string
+	i := strings.Index(r.Host, ":")
+	if i > 0 {
+		port = r.Host[i:]
 	}
+	var use_proxy int = 0
+	var ipaddr string
+	if dialer_best != -1 {
+		use_proxy = is_use_proxy(r.Host, remote_name, &ipaddr)
+	}
+
+	if use_proxy == -1 || len(ipaddr) < 7 || strings.Contains(ipaddr, "0.0.0.0") || strings.Contains(ipaddr, "127.0.0.") {
+		w.WriteHeader(http.StatusNoContent)
+		return
+	}
+	if len(port) > 0 {
+		ipaddr += port
+	}
+	r.Host = ipaddr
 
 	var destConn net.Conn
 	var err error
@@ -703,6 +803,8 @@ func main() {
 		}
 		dns.Config.SetTimeout(uint(time.Second))
 		dns.Config.RetryTimes = uint(4)
+	} else {
+		conf.DNSresolver = "8.8.4.4:53"
 	}
 
 	if len(conf.LogFile) > 0 {
@@ -717,7 +819,7 @@ func main() {
 			log.SetOutput(logfile)
 		}
 	} else {
-		log.SetOutput(ioutil.Discard)
+		log.SetOutput(io.Discard)
 	}
 
 	go load_lists()
@@ -764,15 +866,21 @@ func main() {
 	myClient = &http.Client{
 		Timeout: time_out,
 	}
+
+	if len(conf.BlockListPath) > 0 {
+		load_block_list()
+	}
+	time.Sleep(time.Second * time.Duration(1))
+	var ipaddr string
+
 	// _ = check_direct("https://sun7-3.userapi.com:443")
 	// _ = is_use_proxy("tsn.ua", "_debug")
-	// _ = is_use_proxy("rezka.ag", "_debug")
-	//_ = is_use_proxy("gordonua.com", "_debug")
+	// _ = is_use_proxy("www.ozon.ru", "_debug")
+	// _ = is_use_proxy("gordonua.com", "_debug")
 	// _ = is_use_proxy("www.obozrevatel.com", "_debug")
-	time.Sleep(time.Second * time.Duration(1))
 	//_ = is_use_proxy("play.google.com:443", "_debug")
-	_ = is_use_proxy("hl3.googleusercontent.com", "_debug")
-	_ = is_use_proxy("darstar.com.ua", "_debug")
+	_ = is_use_proxy("hl3.googleusercontent.com", "_debug", &ipaddr)
+	// _ = is_use_proxy("newsstand.googleusercontent.com", "_debug")
 	mylog("version " + version)
 
 	mylog("Listen at " + conf.Listenaddr + ":" + strconv.Itoa(conf.Listenport))

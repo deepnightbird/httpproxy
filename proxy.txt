@@ -12,12 +12,13 @@ meduza.io
 theins.ru
 *.linkedin.com
 unian.net
-vk.com
 habr.com
 cdninstagram.com
 prostovpn.org
 twimg.com
 play.google.com
-*.googleusercontent.com
-fonts.gstatic.com
-*.googleapis.com
+#*.googleusercontent.com
+#*.gstatic.com
+#*.googleapis.com
+#*.ggpht.com
+
